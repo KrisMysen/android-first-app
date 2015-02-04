@@ -1,5 +1,6 @@
 package kristoffermysen.myfirstapp;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -17,6 +18,17 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) return;
+
+            MyImageFragment myImageFragment = new MyImageFragment();
+            myImageFragment.setArguments(getIntent().getExtras());
+
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction().add(R.id.fragment_container, myImageFragment).commit();
+
+        }
     }
 
 

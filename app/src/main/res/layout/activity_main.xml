@@ -2,16 +2,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal">
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
-    <EditText android:id="@+id/edit_message"
-        android:layout_width="0dp"
+        <EditText android:id="@+id/edit_message"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/edit_message"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="sendMessage"
+            android:text="@string/button_send"/>
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:hint="@string/edit_message"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="sendMessage"
-        android:text="@string/button_send"/>
+        android:id="@+id/fragment_container"/>
+
+    <!--<fragment android:name="kristoffermysen.myfirstapp.MyImageFragment"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/my_image"-->
+        <!--tools:layout="@layout/fragment_my_image" />-->
+
 </LinearLayout>
